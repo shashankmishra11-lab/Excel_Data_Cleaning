@@ -25,9 +25,13 @@ That’s 12 columns with issues significant enough to walk through in detail. Th
 
 TRIM, PROPER, SUBSTITUTE (chained), LEN, LEFT/MID/RIGHT, nested IF, IFERROR, ISNUMBER, TEXTJOIN, COUNTIF/COUNTIFS, TEXT, XLOOKUP. No VBA, no add-ins — core Excel formulas only.
 
+![XLOOKUP Table](images/XLOOKUP_Table.png)
+
 ## Before / After
 
 ![Before cleaning](images/Messy_Data_Screenshot.png)
+
+
 ![After cleaning](images/Cleaned_Data_Screenshot.png)
 
 
