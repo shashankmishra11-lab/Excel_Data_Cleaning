@@ -5,7 +5,7 @@
 E-commerce order data usually isn't one clean file — it's an order management export, a payments log, and a courier feed, stitched together with three different date formats and two different measurement units. This project simulates exactly that, and works through it the way an analyst actually would: investigate before fixing, only correct what's provably safe to correct, and document the rest.
 
 ## Try it yourself
-Grab `raw_dataset.xlsx` from this repo and see how many of these issues you can catch on your own before checking `cleaned_dataset.xlsx`. Good practice if you're building your own data cleaning portfolio.
+Grab `Raw_D2C_Ecommerce_Order_Fulfillment_Dataset.csv` from this repo and see how many of these issues you can catch on your own before checking `cleaned_dataset.xlsx`. Good practice if you're building your own data cleaning portfolio.
 
 ## What was found & fixed
 
@@ -23,17 +23,28 @@ Grab `raw_dataset.xlsx` from this repo and see how many of these issues you can 
 ## Flagged, not force-fixed
 A handful of order_id/AWB pairs represent the same real order captured under two different IDs. Rather than guess which record to keep, these are flagged for review — some data problems don't have a clean automatable answer, and forcing one just hides the uncertainty.
 
+
+## Before / After
+
+**Before:**
+![Raw messy data](images/before_cleanup.png)
+
+**After:**
+![Cleaned data](images/after_cleanup.png)
+![Cleaned data](images/after_cleanup_1.png)
+
 ## Tools
 Excel — COUNTIF, XLOOKUP, IF/IFS, DATE, LEFT/MID/RIGHT/TEXT, ISNUMBER, SUBSTITUTE
 
+![XLOOKUP Table](images/product_sku_match_using_xlookup.png)
+
 ## Files
-- `raw_dataset.xlsx` — original messy export
-- `cleaned_dataset.xlsx` — final cleaned version, audit-trail columns preserved
+- `Raw_D2C_Ecommerce_Order_Fulfillment_Dataset.csv` — original messy export
+- `Cleaned_D2C_Ecommerce_Order_Fulfillment_Dataset.xlsx` — final cleaned version, audit-trail columns preserved
 - `README.md` — this file
 
-*(rename to match your actual file names before pushing)*
 
 ## Let's connect
-[LinkedIn](https://in.linkedin.com/in/shashank-mishra-58678b375) · [GitHub](https://github.com/shashankmishra11-labs)
+[LinkedIn](https://in.linkedin.com/in/shashank-mishra-58678b375) · [GitHub](https://github.com/shashankmishra11-lab)
 
 If you're also building a data analyst portfolio, feel free to fork this, try the cleaning yourself, or reach out — always happy to talk data cleaning, Excel formulas, or e-commerce analytics.
