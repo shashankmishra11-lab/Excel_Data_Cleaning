@@ -1,10 +1,14 @@
-# Cleaning a Customer_Lead_&_Sales_Dataset in Excel
+# ✍️ Cleaning a Messy Customer Lead & Sales Dataset in Excel
 
-Most tutorials hand you clean data. Real jobs don't. So I built a messy 23-column, 150-row customer Customer_Lead_&_Sales_Dataset on purpose and cleaned it end-to-end in Excel — formulas, validation logic, and the judgment calls a formula can't make for you.
+Most tutorials clean the data before you even open it. Real jobs don't — so I built one that doesn't either.
 
-Both the **raw messy sheet** and the **cleaned version** are in this repo. Clone it and try cleaning it yourself, or check my approach below.
+This is a 23-column, 150-row customer lead dataset, deliberately broken across nearly every failure mode a real analyst runs into: duplicate IDs, phone numbers in five different formats, an impossible birthdate, numbers silently stored as text, and a "free text" column that turned out to be disguised categories. I cleaned it end-to-end in Excel — formulas, validation logic, and the judgment calls no formula makes for you.
 
-## The mess, and how it got fixed
+Both the raw messy sheet and the cleaned version are in this repo. Clone it, dig in, and see how many of these you'd have caught yourself.
+
+---
+
+## 🔍 The mess, and how it got fixed
 
 - **Customer IDs** — had duplicates, caught with a COUNTIF flag
 - **Names** — inconsistent casing + hidden whitespace (some spaces invisible to the eye)
@@ -19,23 +23,33 @@ Both the **raw messy sheet** and the **cleaned version** are in this repo. Clone
 - **Call Duration** — nearly the whole column was numbers stored as text; would have silently broken any SUM/AVERAGE
 - **Notes** — looked like free text, was actually ~12 repeating phrases. Built a lookup table + XLOOKUP to bucket them into Converted / Interested / Follow-up / Dead End
 
-That’s 12 columns with issues significant enough to walk through in detail. The remaining columns (City, State, Agent, Call Status, Follow-up Date, Purchase Amount, Payment Status, Customer Rating) had smaller issues of the same kind — stray whitespace, inconsistent casing, occasional blanks — fixed using the same techniques above, just not written up individually since they didn’t introduce anything new.
+That's 12 columns with issues significant enough to walk through in detail. The remaining columns (City, State, Agent, Call Status, Follow-up Date, Purchase Amount, Payment Status, Customer Rating) had smaller issues of the same kind — stray whitespace, inconsistent casing, occasional blanks — fixed using the same techniques above, just not written up individually since they didn't introduce anything new.
 
-## Tools used
+---
+
+## 🛠️ Tools used
 
 TRIM, PROPER, SUBSTITUTE (chained), LEN, LEFT/MID/RIGHT, nested IF, IFERROR, ISNUMBER, TEXTJOIN, COUNTIF/COUNTIFS, TEXT, XLOOKUP. No VBA, no add-ins — core Excel formulas only.
 
-## Before / After
+![XLOOKUP Table](images/XLOOKUP_Table.png)
+
+---
+
+## 📸 Before / After
 
 ![Before cleaning](images/Messy_Data_Screenshot.png)
+
 ![After cleaning](images/Cleaned_Data_Screenshot.png)
 
+---
 
-## A few decisions worth noting
+## 🧠 A few decisions worth noting
 
 Flagged unrecoverable errors instead of guessing (the broken phone number, the impossible birthdate). Treated "missing" and "invalid" as different problems, not one bucket. Left numeric blanks as real blanks rather than labeling them, since SUM/AVERAGE already handle those correctly.
 
-## Try it yourself
+---
+
+## 🎯 Try it yourself
 
 - Find the duplicate Customer IDs without using Remove Duplicates
 - Standardize the 5 phone number formats into one pattern
@@ -43,14 +57,15 @@ Flagged unrecoverable errors instead of guessing (the broken phone number, the i
 - Is the Notes column really free text, or a disguised category field?
 - Redo the whole cleanup in Power Query instead of formulas — which do you prefer?
 
-## About
+---
+
+## 👋 About
 
 Built while learning data analytics as a fresher, alongside the Google Data Analytics Professional Certificate and DataCamp's Associate Data Analyst in SQL track. More projects — PivotTables, dashboards, Power BI — coming as this portfolio grows.
 
-## Connect
+## 🔗 Connect
 
-If you found this useful or have feedback, I'm on LinkedIn https://in.linkedin.com/in/shashank-mishra-58678b375 — always happy to connect with others in data analytics.
-
+If you found this useful or have feedback, I'm on [LinkedIn](https://in.linkedin.com/in/shashank-mishra-58678b375) — always happy to connect with others in data analytics.
 
 ---
 **Suggested GitHub topics:** `data-cleaning` `excel` `data-analyst-portfolio` `power-query` `xlookup` `data-analytics` `messy-data` `fresher-portfolio`
